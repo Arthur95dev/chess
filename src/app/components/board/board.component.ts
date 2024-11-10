@@ -19,7 +19,9 @@ export class BoardComponent implements OnInit, OnDestroy {
     }
     ngOnDestroy() {
     }
-
+    defineFigure(row: number, col: number): string {
+        return "";
+    }
     initCells(): void {
         for (let i = 0; i < 8; i++) {
             for (let j = 0; j < 8; j++) {
