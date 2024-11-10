@@ -1,1 +1,9 @@
-<div *ngFor="let cell of cells"></div>
+<div class="board-container">
+    <cell *ngFor="let cell of cells"
+        [row]="cell.row"
+        [col]="cell.col"
+        [cellNum]="cell.cellNum"
+        [color]="cell.color"
+        [figure]="cell.figure"
+    />
+</div>

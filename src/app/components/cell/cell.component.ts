@@ -1,20 +1,19 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, Input, OnInit} from "@angular/core";
+import {ICell} from "./cell.interface";
 
 @Component({
-    selector: "app-cell",
+    selector: "cell",
     standalone: true,
     templateUrl: "./cell.component.html",
     styleUrl: "./cell.component.css"
 })
+export class CellComponent implements ICell, OnInit {
+    @Input() row: number;
+    @Input() col: number;
+    @Input() cellNum: number;
+    @Input() color: string;
+    @Input() figure: string | null;
 
-export class CellComponent implements OnInit {
-    public count: number;
-    private color: string;
-    private figure: string | null;
-
-    constructor(count: number) {
-        this.count = count;
-    }
     isEmpty = (): boolean => {
         return this.figure === null;
     }
