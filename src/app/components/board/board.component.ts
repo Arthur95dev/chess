@@ -1,8 +1,8 @@
 import {Component, inject, OnDestroy, OnInit} from "@angular/core";
 import {CellComponent} from "../cell/cell.component";
 import {CommonModule, NgFor} from "@angular/common";
-import {ICell} from "../cell/cell.interface";
 import {FigureService} from "../../services/figure.service";
+import {ICell} from "../cell/cell.component";
 
 @Component({
     selector: "board",
@@ -32,7 +32,7 @@ export class BoardComponent implements OnInit, OnDestroy {
                     col: j,
                     cellNum: cellNum,
                     color: i % 2 === 0 ? j % 2 === 0 ? 'white' : 'black' : j % 2 === 0 ? 'black' : 'white',
-                    figure: this.figureService.defineFigureName(i, cellNum)
+                    figure: this.figureService.createFigure(i, cellNum)
                 })
             }
         }

@@ -1,1 +1,3 @@
-<div [class]="color">{{cellNum}}</div>
+<div [class]="color">
+    <img *ngIf="figure" [src]="figure.url"/>
+</div>
