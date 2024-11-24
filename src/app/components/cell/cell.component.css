@@ -1,7 +1,15 @@
+.black,
+.white {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .black {
-    background-color: #000;
+    background-color: hsl(37, 74%, 43%);
 }
 
 .white {
-    background-color: #fff;
+    background-color: hsl(35, 68%, 79%);
 }

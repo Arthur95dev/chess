@@ -31,6 +31,9 @@ export class CellComponent implements ICell, OnInit {
         return this.figure === null;
     }
 
+    clickHundler(): void {
+        if (this.isEmpty()) return;
+    }
     ngOnInit() {
     }
 }
