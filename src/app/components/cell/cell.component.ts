@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from "@angular/core";
 import {IFigure, FigureColorType} from "../../services/figure.service";
-import {NgIf} from "@angular/common";
+import {NgClass, NgIf} from "@angular/common";
 
 export interface ICell {
     row: number;
@@ -15,7 +15,8 @@ export interface ICell {
     standalone: true,
     templateUrl: "./cell.component.html",
     imports: [
-        NgIf
+        NgIf,
+        NgClass
     ],
     styleUrl: "./cell.component.css"
 })
@@ -26,6 +27,7 @@ export class CellComponent implements ICell, OnInit {
     @Input() color: FigureColorType;
     @Input() figure: IFigure | null;
 
+    isSelected: boolean = false;
 
     isEmpty = (): boolean => {
         return this.figure === null;
@@ -33,6 +35,7 @@ export class CellComponent implements ICell, OnInit {
 
     clickHundler(): void {
         if (this.isEmpty()) return;
+        this.isSelected = !this.isSelected;
     }
     ngOnInit() {
     }

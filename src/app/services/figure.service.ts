@@ -1,11 +1,12 @@
 import {Injectable} from "@angular/core";
 
-type FigureNameType = 'pawn' | 'queen' | 'king' | 'knight' | 'bishop' | 'rook';
+export type FigureNameType = 'pawn' | 'queen' | 'king' | 'knight' | 'bishop' | 'rook';
 export type FigureColorType = 'black' | 'white';
 
 export interface IFigure {
-    color: FigureColorType;
     url: string;
+    color: FigureColorType;
+    figureName: FigureNameType;
     firstStep?: boolean;
 }
 
@@ -68,8 +69,9 @@ export class FigureService {
         const figureColor: FigureColorType = this.defineFigureColor(row);
 
         let figure: IFigure = {
+            url: `./assets/${figureName}_${figureColor}.png`,
             color: figureColor,
-            url: `./assets/${figureName}_${figureColor}.png`
+            figureName: figureName
         }
 
         if (figureName === 'pawn' || figureName === 'king') {
@@ -79,7 +81,11 @@ export class FigureService {
         return figure;
     }
 
-
+    availableCells(figureName: FigureNameType, row: number, cell: number): void {
+        switch (figureName) {
+            case 'pawn':
+        }
+    }
     moveFigure(row: number, cellNum: number) {}
 
 }
